@@ -51,10 +51,19 @@ body {
   font-weight:400px;
   line-height: 1.4;
   font-family: "Nanum Gothic", sans-serif;
+
+	height: 3000px;
 }
 header {
+	z-index: 999;
+	position:fixed;
+	top:0;
+	width:100%;
 	background-color: #f6f5f0;
   border-bottom: 0.01rem solid #c8c8c8;
+}
+section {
+	margin-top: 7.5rem;
 }
 img {
   display:block;

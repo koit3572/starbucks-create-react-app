@@ -1,18 +1,20 @@
 import Navbar from './components/navbar/Navbar';
+import Visual from './components/visual/Visual';
 function App() {
 
   return (
-    <div className="App">
+    <>
       <header>
         <Navbar />
       </header>
-      <article>
-
-      </article>
-      <footer>
-
-      </footer>
-    </div>
+      <section>
+        <Visual />
+      </section>
+      <section>
+        
+      </section>
+      <footer></footer>
+    </>
   );
 }
 

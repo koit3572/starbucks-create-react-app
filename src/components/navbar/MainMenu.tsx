@@ -1,7 +1,6 @@
 import classNames from "classnames/bind";
 import styles from "../../style/navbar.module.scss";
 import { MAINMENU_ITEM_CONTENTS } from "../../constants";
-import Container from "../Container";
 import { IMainMenuItemContents } from "../../types/constants.type";
 interface IItemProps {
   itemData: IMainMenuItemContents;
@@ -16,6 +15,7 @@ const contentsMenu = `${itemContents} ${cx("contents__menu")}`;
 const menuMenu = cx("contents__menu","menu__menu");
 const contentsTextTure = `${itemContents} ${cx("contents__texture")}`;
 const textureContents = cx("contents__texture", "texture__contents");
+
 const MainMenu = () => {
   const Item:React.FC<IItemProps> = ({ itemData }) => {
     return (
@@ -23,32 +23,28 @@ const MainMenu = () => {
         <div className={itemName}>{itemData.name}</div>
         <div className={itemContents}>
           <div className={contentsMenu}>
-            <Container>
-              <ul className={menuMenu}>
-                {Object.keys(itemData.contents.menu).map((menuName, i) => (
-                  <li key={i}>
-                    <h4>{menuName}</h4>
-                    <ul>
-                      {itemData.contents.menu[menuName].map((menuItem, i) => (
-                        <li key={i}>{menuItem}</li>
-                      ))}
-                    </ul>
-                  </li>
-                ))}
-              </ul>
-            </Container>
+            <ul className={`${menuMenu} inner`}>
+              {Object.keys(itemData.contents.menu).map((menuName, i) => (
+                <li key={i}>
+                  <h4>{menuName}</h4>
+                  <ul>
+                    {itemData.contents.menu[menuName].map((menuItem, i) => (
+                      <li key={i}>{menuItem}</li>
+                    ))}
+                  </ul>
+                </li>
+              ))}
+            </ul>
           </div>
           <div className={contentsTextTure}>
-            <Container>
-              <div className={textureContents}>
-                {itemData.contents.texture.map((texture, i) => (
-                  <div key={i}>
-                    <p>{texture.title}</p>
-                    <p>{texture.contents}</p>
-                  </div>
-                ))}
-              </div>
-            </Container>
+            <div className={`${textureContents} inner`}>
+              {itemData.contents.texture.map((texture, i) => (
+                <div key={i}>
+                  <p>{texture.title}</p>
+                  <p>{texture.contents}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </li>

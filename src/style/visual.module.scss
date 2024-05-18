@@ -1,0 +1,49 @@
+.visual {
+  height:646px;
+  background-image: url("../src_assets/visual_bg.jpg");
+  .inner{
+    position:relative;
+    height:100%;
+    width:64rem;
+    margin: 0 auto;
+  }
+  .title{
+    z-index: 100;
+    position:absolute;
+    top:88px;
+    left:-10px;
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    gap:1rem;
+  }
+  .visual__cup1{
+    position:absolute;
+    bottom: 0;
+    right: -47px;
+  }
+  .visual__cup1-text{
+    position:absolute;
+    top: 38px;
+    right: 171px;
+  }
+  .visual__cup2{
+    position:absolute;
+    bottom: 0;
+    right: 162px;
+  }
+  .visual__cup2-text{
+    position:absolute;
+    top: 321px;
+    right: 416px;
+  }
+  .visual__spoon{
+    position:absolute;
+    bottom: 0;
+    left: 275px;
+  }
+  .fade-in{
+    opacity:0;
+  }
+}
+

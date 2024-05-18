@@ -98,6 +98,7 @@
           border-radius: 0.5rem 0.5rem 0 0;
         }
         .item__contents{
+          z-index: 1;
           position:fixed;
           left:0;
           display: none;
@@ -152,5 +153,17 @@
         }
       }
     }
+  }
+}
+.badges{
+  position:fixed;
+  top:8.5rem;
+  right: 1rem;
+  .badge{
+    border-radius: 0.5rem;
+    overflow: hidden;
+    margin-bottom: 0.8rem;
+    cursor: pointer;
+    box-shadow: 0.5rem 0.5rem 0.8rem rgb(0,0,0,0.15)
   }
 }
