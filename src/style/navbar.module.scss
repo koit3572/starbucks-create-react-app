@@ -7,17 +7,18 @@
     margin: auto 0;
   }
   .menus {
+    position:relative;
     display: flex;
     flex-direction: column;
-    justify-content: left;
-    margin-top: 1rem;
+    width:"full";
+    margin-top: 1.2rem;
     .side-menu {
       display: flex;
       align-items: center;
       .menu {
         display:flex;
         font-family:Arial, sans-serif;
-        .menu-item {
+        .item {
           position:relative;
           a {
             display:block;
@@ -45,9 +46,8 @@
       .search {
         position:relative;
         display: flex;
-        .search-container {
+        .search__container {
           display:flex;
-          justify-content: center;
           align-items: center;
           input {
             width:0;
@@ -63,7 +63,7 @@
             width:8rem;
             border-color: #669900
           }
-          .searchIcons {
+          .search__Icons {
             position: absolute;
             top:0;
             bottom:0;
@@ -71,15 +71,86 @@
             margin:auto;
             cursor: pointer;
           }
-          .input-focused{
+          .focused{
             opacity: 0;
             transition: opacity .5s;
+            pointer-events :none;
           }
         }
       }
     }
     .main-menu{
-
+      position:absolute;
+      bottom:0;
+      right: 0;
+      display:flex;
+      .item{
+        .item__name{
+          padding: 0.6rem 1rem 1.8rem 1rem;
+          white-space: nowrap;
+          font-family: Arial, sans-serif;
+          font-size: 0.8rem;
+          text-align: center;
+        }
+        &:hover .item__name{
+          background-color: #2c2a29;
+          color:#669900;
+          border-radius: 0.5rem 0.5rem 0 0;
+        }
+        .item__contents{
+          position:fixed;
+          left:0;
+          display: none;
+          width: 100%;
+          padding:0;
+          .contents__menu{
+            position: static;
+            min-height:12.5rem;
+            background-color: #2c2a29;
+            .menu__menu{
+              display:flex;
+              li{
+                min-width:12rem;
+                padding: 1.2rem 1.2rem 1.2rem 0;
+                white-space: nowrap;
+                h4{
+                  padding-bottom: 1.2rem;
+                  color:#fff;
+                }
+                ul{
+                  li{
+                  padding: 0.3rem 0;
+                  color:#777;
+                  font-size: 0.8rem;
+                  &:hover{
+                    color:#669900;
+                    cursor: pointer;
+                  }
+                }
+                }
+              }
+            }
+          }
+          .contents__texture{
+            position: static;
+            background-image: url("../src_assets/main_menu_pattern.jpg");
+            .texture__contents{
+              padding:2rem 2rem 4rem 0;
+              div{
+                & :first-child{
+                  color:#ccc;
+                }
+                & :last-child{
+                  color:#669900;
+                }
+              }
+            }
+          }
+        }
+        &:hover .item__contents{
+          display:block;
+        }
+      }
     }
   }
 }

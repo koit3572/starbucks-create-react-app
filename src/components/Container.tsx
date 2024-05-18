@@ -1,7 +1,7 @@
 import React from 'react'
 interface IContainerProps {
   children: React.ReactNode;
-  backgroundColor: string;
+  backgroundColor?: string;
 }
 const Container: React.FC<IContainerProps> = ({
   children,
