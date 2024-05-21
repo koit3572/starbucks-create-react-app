@@ -7,23 +7,15 @@ interface IItemProps {
 }
 
 const cx = classNames.bind(styles);
-const mainMenu = cx("main-menu");
-const item = cx("item")
-const itemName = `${item} ${cx('item__name')}`
-const itemContents = `${item} ${cx("item__contents")}`;
-const contentsMenu = `${itemContents} ${cx("contents__menu")}`;
-const menuMenu = cx("contents__menu","menu__menu");
-const contentsTextTure = `${itemContents} ${cx("contents__texture")}`;
-const textureContents = cx("contents__texture", "texture__contents");
 
 const MainMenu = () => {
   const Item:React.FC<IItemProps> = ({ itemData }) => {
     return (
-      <li className={item}>
-        <div className={itemName}>{itemData.name}</div>
-        <div className={itemContents}>
-          <div className={contentsMenu}>
-            <ul className={`${menuMenu} inner`}>
+      <li className={cx("item")}>
+        <div className={cx("item__name")}>{itemData.name}</div>
+        <div className={cx("item__contents")}>
+          <div className={cx("contents__menu")}>
+            <ul className={`${cx("menu__menu")} inner`}>
               {Object.keys(itemData.contents.menu).map((menuName, i) => (
                 <li key={i}>
                   <h4>{menuName}</h4>
@@ -36,8 +28,8 @@ const MainMenu = () => {
               ))}
             </ul>
           </div>
-          <div className={contentsTextTure}>
-            <div className={`${textureContents} inner`}>
+          <div className={cx("contents__texture")}>
+            <div className={`${cx("texture__contents")} inner`}>
               {itemData.contents.texture.map((texture, i) => (
                 <div key={i}>
                   <p>{texture.title}</p>
@@ -51,7 +43,7 @@ const MainMenu = () => {
     );
   };
   return (
-    <ul className={mainMenu}>
+    <ul className={cx("main-menu")}>
       {MAINMENU_ITEM_CONTENTS.map((item, i) => (
         <Item key={i} itemData={item} />
       ))}

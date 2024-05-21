@@ -1,4 +1,5 @@
 import Navbar from './components/navbar/Navbar';
+import Notice from './components/notice/Notice';
 import Visual from './components/visual/Visual';
 function App() {
 
@@ -11,9 +12,11 @@ function App() {
         <Visual />
       </section>
       <section>
-        
+        <Notice />
       </section>
-      <footer></footer>
+      <footer>
+        
+      </footer>
     </>
   );
 }

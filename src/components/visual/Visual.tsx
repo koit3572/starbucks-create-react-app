@@ -15,46 +15,43 @@ interface IVisualImage {
   alt: string;
 }
 const cx = classNames.bind(styles);
-const visual = cx("visual");
-const inner = cx('inner')
-const title = cx('title');
-const visualCup1 = cx("visual__cup1");
-const visualCup1Text = cx("visual__cup1-text");
-const visualCup2 = cx("visual__cup2");
-const visualCup2Text = cx("visual__cup2-text");
-const visualSpoon = cx("visual__spoon");
-const fadeIn = cx('vidual','fade-in');
 
 const visualTitleImage: IVisualImage = {
   src: visualTitleImg,
   alt: "STARBUCKS DELIGHTFUL START TO THE YEARS",
 };
-const visualImages: IVisualImage[] = [
-  {
-    className:visualCup1,
-    src:visualCup1Img,
-    alt:"new OATMEAL LATTE"
-  },
-  {
-    className:visualCup1Text,
-    src:visualCup1TextImg,
-    alt:"오트밀 라떼",
-  },
-  {
-    className: visualCup2,
-    src:visualCup2Img,
-    alt:"new STARBUCKS CARAMEL CRUMBLE MOCHA"
-  },
-  {
-    className: visualCup2Text,
-    src:visualCup2TextImg,
-    alt:"스타벅스 카라멜 크럼블 모카"
-  },
-  {
-    className:visualSpoon,
-    src:visualSpoonImg,
-    alt:"Spoon"
-  },
+const visualImages: IVisualImage[][] = [
+  [
+    {
+      className: cx("visual__cup1"),
+      src: visualCup1Img,
+      alt: "new OATMEAL LATTE",
+    },
+    {
+      className: cx("visual__cup1-text"),
+      src: visualCup1TextImg,
+      alt: "오트밀 라떼",
+    },
+  ],
+  [
+    {
+      className: cx("visual__cup2"),
+      src: visualCup2Img,
+      alt: "new STARBUCKS CARAMEL CRUMBLE MOCHA",
+    },
+    {
+      className: cx("visual__cup2-text"),
+      src: visualCup2TextImg,
+      alt: "스타벅스 카라멜 크럼블 모카",
+    },
+  ],
+  [
+    {
+      className: cx("visual__spoon"),
+      src: visualSpoonImg,
+      alt: "Spoon",
+    },
+  ],
 ];
 
 const Visual = () => {
@@ -72,23 +69,19 @@ const Visual = () => {
     })
   },[])
   return (
-    <div className={visual}>
-      <div className={`${inner}`}>
-        <div className={`${title} ${fadeIn}`}>
+    <div className={cx("visual")}>
+      <div className={cx("inner")}>
+        <div className={cx('title', 'fade-in')}>
           <VisualImage data={visualTitleImage} />
           <Button1 type={"brown"}>자세히 보기</Button1>
         </div>
-        <div className={fadeIn}>
-          <VisualImage data={visualImages[0]} />
-          <VisualImage data={visualImages[1]} />
-        </div>
-        <div className={fadeIn}>
-          <VisualImage data={visualImages[2]} />
-          <VisualImage data={visualImages[3]} />
-        </div>
-        <div className={fadeIn}>
-          <VisualImage data={visualImages[4]} />
-        </div>
+        {visualImages.map((images, i) => (
+          <div key={i} className={cx('fade-in')}>
+            {images.map((image, i) => (
+              <VisualImage key={i} data={image} />
+            ))}
+          </div>
+        ))}
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ import styles from "../../style/navbar.module.scss"
 import useThrottle from '../../hooks/useThrottle';
 import { gsap } from 'gsap';
 const cx = classNames.bind(styles)
-const badge = cx("badge");
+
 const Badges = () => {
   const badgesContainerRef = useRef<HTMLDivElement>(null);
   const listener = () => {
@@ -32,10 +32,10 @@ const Badges = () => {
   }, []);
   return (
     <div ref={badgesContainerRef}>
-      <div className={badge}>
+      <div className={cx("badge")}>
         <img src={badge1} alt="badge1" />
       </div>
-      <div className={badge}>
+      <div className={cx("badge")}>
         <img src={badge2} alt="badge2" />
       </div>
     </div>

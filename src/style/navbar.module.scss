@@ -15,10 +15,10 @@
     .side-menu {
       display: flex;
       align-items: center;
-      .menu {
+      .side-menu__menu {
         display:flex;
         font-family:Arial, sans-serif;
-        .item {
+        .menu__item {
           position:relative;
           a {
             display:block;
@@ -63,7 +63,7 @@
             width:8rem;
             border-color: #669900
           }
-          .search__Icons {
+          .container__search-Icons {
             position: absolute;
             top:0;
             bottom:0;
@@ -71,7 +71,7 @@
             margin:auto;
             cursor: pointer;
           }
-          .focused{
+          .container--focused{
             opacity: 0;
             transition: opacity .5s;
             pointer-events :none;
@@ -136,8 +136,9 @@
             position: static;
             background-image: url("../src_assets/main_menu_pattern.jpg");
             .texture__contents{
-              padding:2rem 2rem 4rem 0;
+              padding:1.5rem 1.5rem 2rem 0;
               div{
+                padding-bottom: 0.5rem;
                 & :first-child{
                   color:#ccc;
                 }
