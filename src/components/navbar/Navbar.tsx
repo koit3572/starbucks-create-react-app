@@ -5,27 +5,26 @@ import SideMenu from './SideMenu';
 import styles from "../../style/navbar.module.scss"
 import classNames from "classnames/bind";
 import Badges from "./Badges";
+import Container from "../layout/Container";
 const cx = classNames.bind(styles);
 const Navbar = () => {
   return (
-    <div className="container">
-      <div className='inner'>
-        <div className={cx("navbar")}>
-          <div className={cx("logo")}>
-            <Link to={"/"}>
-              <img src={starbucksLogo} alt="" />
-            </Link>
-          </div>
-          <div className={cx("menus")}>
-            <SideMenu />
-            <MainMenu />
-          </div>
+    <Container>
+      <div className={cx("navbar")}>
+        <div className={cx("logo")}>
+          <Link to={"/"}>
+            <img src={starbucksLogo} alt="" />
+          </Link>
         </div>
-        <div className={cx("badges")}>
-          <Badges />
+        <div className={cx("menus")}>
+          <SideMenu />
+          <MainMenu />
         </div>
       </div>
-    </div>
+      <div className={cx("badges")}>
+        <Badges />
+      </div>
+    </Container>
   );
 }
 

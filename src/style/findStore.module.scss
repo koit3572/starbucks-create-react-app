@@ -1,0 +1,46 @@
+.find-store{
+  background-image: url("../src_assets/find_store_bg.jpg");
+  .inner{
+    position:relative;
+    height:26rem;
+    .texture1{
+      position:absolute;
+      top:0;
+      left:25rem;
+    }
+    .texture2{
+      position:absolute;
+      bottom:0;
+      right:0;
+
+    }
+    .picture{
+      border-radius: 50%;
+      box-shadow: 2px 2px 8px rgba(0,0,0,.5)
+    }
+    .picture.picture1{
+      position:absolute;
+      top:-4rem;
+      left:0;
+    }
+    .picture.picture2{
+      position:absolute;
+      top:8rem;
+      left:15rem;
+    }
+    .text-group{
+      position:absolute;
+      top:8rem;
+      left:34rem;
+      .title{
+        margin-bottom: 1.2rem;
+      }
+      .discription{
+        margin-bottom: 1.2rem;
+      }
+      .more{
+
+      }
+    }
+  }
+}

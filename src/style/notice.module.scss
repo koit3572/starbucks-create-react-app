@@ -93,7 +93,7 @@
     .promotion-swiper__swiper-slide{
       .swiper-slide-container{
         position:relative;
-        opacity: 0.2;
+        opacity: 0.5;
         transition: opacity 1s;
         &.container__active{
           opacity: 1;
@@ -109,6 +109,8 @@
       }
     }
     .swiper-button-prev{
+      z-index: 2;
+      position:absolute;
       top:200px;
       left:750px;
       width:3rem;
@@ -119,6 +121,8 @@
       }
     }
     .swiper-button-next{
+      z-index: 2;
+      position:absolute;
       top:200px;
       right:750px;
       width:2.5rem;
@@ -148,7 +152,7 @@
       }
     }
   }
-  .swiper-pagination{
+  .promotion-pagination{
     position: absolute;
     bottom: 1.2rem !important;
     text-align: center;
@@ -160,6 +164,7 @@
       background-image: url("../src_assets//promotion_slide_pager.png");
       margin-right: 0.4rem;
       outline: none;
+      opacity: 1;
       &:last-child{
         margin-right: 0;
       }

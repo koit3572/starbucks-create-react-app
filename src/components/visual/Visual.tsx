@@ -9,6 +9,7 @@ import visualSpoonImg from '../../src_assets/visual_spoon.png'
 import Button1 from '../customElement/Button1';
 import { useEffect } from 'react';
 import { gsap } from 'gsap';
+import Container from '../layout/Container';
 interface IVisualImage {
   className?: string;
   src: string;
@@ -69,9 +70,11 @@ const Visual = () => {
     })
   },[])
   return (
-    <div className={cx("visual")}>
-      <div className={cx("inner")}>
-        <div className={cx('title', 'fade-in')}>
+    <Container
+      container={cx("visual")}
+      inner={cx("inner")}
+    >
+      <div className={cx('title', 'fade-in')}>
           <VisualImage data={visualTitleImage} />
           <Button1 type={"brown"}>자세히 보기</Button1>
         </div>
@@ -82,8 +85,7 @@ const Visual = () => {
             ))}
           </div>
         ))}
-      </div>
-    </div>
+    </Container>
   );
 }
 

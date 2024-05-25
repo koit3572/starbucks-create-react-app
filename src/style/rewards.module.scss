@@ -1,0 +1,47 @@
+.rewards {
+  position: relative;
+  height: 15rem;
+  .bg-left{
+    z-index: -1;
+    position:absolute;
+    left:0;
+    width: 50%;
+    height:100%;
+    background-color: #272727;
+  }
+  .bg-right{
+    z-index: -1;
+    position:absolute;
+    right:0;
+    width: 50%;
+    height:100%;
+    background-color: #d5c798;
+  }
+  .inner {
+    position:relative;
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
+    height:100%;
+    background-image: url("../src_assets/rewards.jpg");
+    .btn-group{
+      position:absolute;
+      right: -5rem;
+      bottom:1rem;
+      display: flex;
+      flex-wrap: wrap;
+      white-space:nowrap;
+      gap: 0.5rem;
+      width: 15.5rem;
+      .btn-register{
+        width:8rem;
+      }
+      .btn-sign-in{
+        width:7rem;
+      }
+      .btn-gift{
+        width:100%;
+      }
+    }
+  }
+}

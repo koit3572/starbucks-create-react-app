@@ -1,0 +1,26 @@
+.pick-your-favorite{
+  background-image: url("../src_assets/favorite_bg.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  .inner{
+    padding: 8rem 0;
+    .text-group{
+      display: flex;
+      justify-content: flex-end;
+      flex-wrap:wrap;
+      gap:2rem;
+      width:23rem;
+      .title{
+
+      }
+      .discription{
+
+      }
+      .more{
+
+      }
+    }
+  }
+}

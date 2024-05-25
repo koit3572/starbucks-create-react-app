@@ -1,7 +1,18 @@
 import classNames from "classnames/bind";
 import styles from "../../style/navbar.module.scss";
 import { MAINMENU_ITEM_CONTENTS } from "../../constants";
-import { IMainMenuItemContents } from "../../types/constants.type";
+interface IMainMenuItemContents {
+  name: string;
+  contents: {
+    menu: {
+      [name: string]: string[];
+    };
+    texture: {
+      title: string;
+      contents: string;
+    }[];
+  };
+}
 interface IItemProps {
   itemData: IMainMenuItemContents;
 }

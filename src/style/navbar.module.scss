@@ -1,7 +1,9 @@
 .navbar {
+  z-index: 999;
   display: flex;
   justify-content: space-between;
   height: 7.5rem;
+  width:100%;
   .logo{
     height:"full";
     margin: auto 0;
@@ -166,5 +168,27 @@
     margin-bottom: 0.8rem;
     cursor: pointer;
     box-shadow: 0.5rem 0.5rem 0.8rem rgb(0,0,0,0.15)
+  }
+  .scroll-to{
+    position:fixed;
+    bottom: 2rem;
+    right: -10rem;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width:1.5rem;
+    height:1.5rem;
+    border: 0.3rem solid #fff;
+    border-radius: 20%;
+    padding:1rem;
+    background-color: #2c2a29;
+    color:#fff;
+    &:hover{
+      cursor:pointer;
+    }
+    svg{
+      width:2.5rem;
+      height:2.5rem;
+    }
   }
 }

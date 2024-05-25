@@ -6,17 +6,21 @@ interface IButton1 {
   children: React.ReactNode;
   type?: "reverse" | "brown" | "gold" | "white";
   to?: string;
+  className?: string;
 }
 const cx = classNames.bind(styles);
 const Button1: React.FC<IButton1> = ({
   children,
   type,
-  to = "#"
+  to = "#",
+  className
 }) => {
   return (
     <Link
       to={to}
-      className={type ? cx("button1", `button1--${type}`) : cx("button1")}
+      className={`${
+        type ? cx("button1", `button1--${type}`) : cx("button1")
+      } ${className}`}
     >
       {children}
     </Link>

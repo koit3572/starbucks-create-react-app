@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { Children, useEffect, useRef, useState } from "react";
 import classNames from "classnames/bind";
 import styles from "../../style/notice.module.scss";
 import { Link } from "react-router-dom";
@@ -62,20 +62,16 @@ const promotionSwiperlist: IPromotionSwiperList[] = [
 
 const Notice = () => {
   const PromotionRef = useRef<HTMLDivElement>(null);
-  const PromotionPrevRef = useRef<HTMLDivElement>(null);
-  const PromotionNextRef = useRef<HTMLDivElement>(null);
-  const PromotionPaginationRef = useRef<HTMLDivElement>(null);
-  const [_, setIsLoding] = useState<boolean>(false);
+
   const [isToggle, setIsToggle] = useState<boolean>(true);
+
   const handleToggle = () => {
     !isToggle
       ? PromotionRef.current?.classList.remove(cx("promotion--hide"))
       : PromotionRef.current?.classList.add(cx("promotion--hide"));
     setIsToggle(!isToggle)
   }
-  useEffect(() => {
-    setIsLoding(true);
-  }, []);
+
   return (
     <div>
       <div className={cx("notice")}>
@@ -121,19 +117,17 @@ const Notice = () => {
           loop={true}
           autoplay={{ delay: 5000, disableOnInteraction: false }}
           navigation={{
-            prevEl: PromotionPrevRef.current,
-            nextEl: PromotionNextRef.current,
+            prevEl: `.${cx("swiper-button-prev")}`,
+            nextEl: `.${cx("swiper-button-next")}`,
           }}
           pagination={{
-            el: PromotionPaginationRef.current,
+            el: `.${cx("promotion-pagination")}`,
             clickable: true,
             dynamicMainBullets: 5,
             bulletClass: `swiper-pagination-bullet ${cx(
               "swiper-pagination-bullet"
             )}`,
-            bulletActiveClass: `swiper-pagination-bullet-active ${cx(
-              "swiper-pagination-bullet-active"
-            )}`,
+            bulletActiveClass: cx("swiper-pagination-bullet-active"),
           }}
         >
           {promotionSwiperlist.map((promotionSwiper, i) => (
@@ -157,31 +151,17 @@ const Notice = () => {
               )}
             </SwiperSlide>
           ))}
-          <div
-            ref={PromotionPaginationRef}
-            className={`swiper-pagination ${cx("swiper-pagination")}`}
-          >
+          <div className={`swiper-pagination ${cx("promotion-pagination")}`}>
             {promotionSwiperlist.map((_, i) => (
-              <span
-                key={i}
-                className={`swiper-pagination-bullet ${cx(
-                  "swiper-pagination-bullet"
-                )}`}
-              ></span>
+              <span key={i} className={cx("swiper-pagination-bullet")}></span>
             ))}
           </div>
-          <div
-            ref={PromotionPrevRef}
-            className={`swiper-button-prev ${cx("swiper-button-prev")}`}
-          >
+          <div className={`${cx("swiper-button-prev")} swiper-button-prev`}>
             <div className={cx("swiper-button__border")}>
               <HiArrowLeft />
             </div>
           </div>
-          <div
-            ref={PromotionNextRef}
-            className={`swiper-button-next ${cx("swiper-button-next")}`}
-          >
+          <div className={`${cx("swiper-button-next")} swiper-button-next`}>
             <div className={cx("swiper-button__border")}>
               <HiArrowRight />
             </div>
